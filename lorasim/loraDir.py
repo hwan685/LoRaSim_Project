@@ -377,7 +377,7 @@ class myPacket():
         if experiment == 1:
             self.freq = random.choice([860000000, 864000000, 868000000])
         else:
-            self.freq = 860000000
+            self.freq = random.choice([916800000, 917000000, 917200000,917400000,917600000,917800000,918000000,918200000])
 
         print "frequency" ,self.freq, "symTime ", self.symTime
         print "bw", self.bw, "sf", self.sf, "cr", self.cr, "rssi", self.rssi
