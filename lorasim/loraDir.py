@@ -308,6 +308,12 @@ class myPacket():
             self.cr = 1
             self.bw = 125
 
+        #NZ setting
+        if experiment == 6:
+            self.sf = 6
+            self.cr = 1
+            self.bw = 125
+
 
         # for experiment 3 find the best setting
         # OBS, some hardcoded values
@@ -335,7 +341,7 @@ class myPacket():
                             self.bw = 250
                         else:
                             self.bw=500
-                        at = airtime(self.sf, 1, plen, self.bw)
+                        at = airtime(self.sf, 1, 4, self.bw)
                         if at < minairtime:
                             minairtime = at
                             minsf = self.sf
@@ -476,10 +482,10 @@ nrProcessed = 0
 nrLost = 0
 
 Ptx = 14
-gamma = 2.08
-d0 = 40.0
+gamma = 2.0
+d0 = 1000
 var = 0           # variance ignored for now
-Lpld0 = 127.41
+Lpld0 = 91.739
 GL = 0
 
 sensi = np.array([sf7,sf8,sf9,sf10,sf11,sf12])
@@ -489,6 +495,8 @@ elif experiment == 2:
     minsensi = -112.0   # no experiments, so value from datasheet
 elif experiment in [3,5]:
     minsensi = np.amin(sensi) ## Experiment 3 can use any setting, so take minimum
+elif experiment == 6:
+    minsensi = sensi[0, 1]
 Lpl = Ptx - minsensi
 print "amin", minsensi, "Lpl", Lpl
 maxDist = d0*(math.e**((Lpl-Lpld0)/(10.0*gamma)))
