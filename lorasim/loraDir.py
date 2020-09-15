@@ -72,12 +72,13 @@ full_collision = True
 
 # this is an array with measured values for sensitivity
 # see paper, Table 3
-sf7 = np.array([7,-126.5,-124.25,-120.75])
-sf8 = np.array([8,-127.25,-126.75,-124.0])
-sf9 = np.array([9,-131.25,-128.25,-127.5])
-sf10 = np.array([10,-132.75,-130.25,-128.75])
-sf11 = np.array([11,-134.5,-132.75,-128.75])
-sf12 = np.array([12,-133.25,-132.25,-132.25])
+sf7 = np.array([7,-124,-122,-116])
+sf8 = np.array([8,-127,-125,-119.0])
+sf9 = np.array([9,-130,-128,-122])
+sf10 = np.array([10,-133,-130,-125])
+sf11 = np.array([11,-135,-132,-128])
+sf12 = np.array([12,-137,-135,-129])
+
 
 #
 # check for collisions at base station
@@ -310,7 +311,7 @@ class myPacket():
 
         #NZ setting
         if experiment == 6:
-            self.sf = 6
+            self.sf = 7
             self.cr = 1
             self.bw = 125
 
